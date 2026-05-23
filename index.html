@@ -32,11 +32,31 @@
 }(window, document, 'ttq');
 </script>
 
+<!-- fbclid → _fbc cookie bridge (BEFORE fbq init so CAPI has click id even if connect.facebook.net is blocked) -->
+<script>
+(function(){
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var fbclid = params.get('fbclid');
+    if (fbclid) {
+      var ts = Math.floor(Date.now() / 1000);
+      document.cookie = '_fbc=fb.1.' + ts + '.' + fbclid + '; max-age=7776000; path=/; SameSite=Lax';
+    }
+    if (!/(?:^|; )_fbp=/.test(document.cookie)) {
+      var rnd = Math.floor(Math.random() * 2147483647);
+      var t2 = Math.floor(Date.now() / 1000);
+      document.cookie = '_fbp=fb.1.' + t2 + '.' + rnd + '; max-age=7776000; path=/; SameSite=Lax';
+    }
+  } catch (e) {}
+})();
+</script>
+
 <!-- Meta Pixel 2071044117089882 (Mansculpt DE) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','2071044117089882');
-fbq('track','PageView');
+window.__bbMetaPixelId = '2071044117089882';
+// PageView is fired by bb-tracker.js with an event_id so server CAPI can dedup.
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2071044117089882&ev=PageView&noscript=1"/></noscript>
 
@@ -66,19 +86,35 @@ fbq('track','PageView');
 <!-- bb-tracker.js -->
 <script src="https://bb-tracker-beta.vercel.app/bb-tracker.js" async></script>
 
-<!-- Forward URL params (ttclid/fbclid/utm_*) to CTA links so Shopify theme.liquid bridge persists for CAPI -->
+<!-- Forward URL params + Meta/TikTok click ids to CTA links as Shopify attributes[].
+     Shopify converts attributes[] into order.note_attributes, which the
+     shopify-purchase webhook reads to populate Meta/TikTok CAPI user_data
+     (fbc/fbp/fbclid/ttclid) and lift Purchase match quality. -->
 <script>
   (function(){
+    function readCookie(name){
+      var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
+      return m ? decodeURIComponent(m[1]) : '';
+    }
     function appendParams(){
       try{
-        var currentParams = window.location.search;
-        if(!currentParams || currentParams.length < 2) return;
+        var params = new URLSearchParams(window.location.search);
+        var fbc = readCookie('_fbc');
+        var fbp = readCookie('_fbp');
+        if (fbc) params.set('attributes[fbc]', fbc);
+        if (fbp) params.set('attributes[fbp]', fbp);
+        var fbclid = params.get('fbclid');
+        if (fbclid) params.set('attributes[fbclid]', fbclid);
+        var ttclid = params.get('ttclid');
+        if (ttclid) params.set('attributes[ttclid]', ttclid);
+        var qs = params.toString();
+        if (!qs) return;
         var links = document.querySelectorAll('a[data-bb-cta]');
         links.forEach(function(a){
           var href = a.getAttribute('href');
           if(!href) return;
           var sep = href.indexOf('?') >= 0 ? '&' : '?';
-          a.setAttribute('href', href + sep + currentParams.substring(1));
+          a.setAttribute('href', href + sep + qs);
         });
       }catch(e){}
     }
