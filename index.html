@@ -337,6 +337,7 @@ img { max-width: 100%; height: auto; display: block; }
   .doctor-section-image { flex: 0 0 auto; max-width: 280px; margin: 0 auto; }
 }
 </style>
+<link rel="preload" as="image" href="assets/images/lori-investment.webp" fetchpriority="high">
 </head>
 <body>
 
@@ -344,7 +345,7 @@ img { max-width: 100%; height: auto; display: block; }
 <header class="header">
   <div class="header-container">
     <div class="logo">
-      <img class="logo-shark-header" src="assets/images/shark-tank-logo.svg" alt="Shark Tank">
+      <img decoding="async" loading="lazy" class="logo-shark-header" src="assets/images/shark-tank-logo.svg" alt="Shark Tank">
       <span class="logo-text">Bei <strong>Shark Tank</strong> gesehen</span>
     </div>
   </div>
@@ -352,7 +353,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- ===================== STAGE 1: HERO + WHY LORI + MECHANISM ===================== -->
 <section class="hero" id="etapa-1">
-  <img class="shark-badge" src="assets/images/shark-badge-seal.webp" alt="Bei Shark Tank gesehen">
+  <img decoding="async" loading="lazy" class="shark-badge" src="assets/images/shark-badge-seal.webp" alt="Bei Shark Tank gesehen">
   <h1>Bei Shark Tank gesehen...</h1>
   <h2>Endlich. Das vom Urologen empfohlene Wave-Therapy-Gerät, das Männern hilft, wieder zu echten, zuverlässigen Erektionen zu kommen — ohne Pillen, ohne Pumpe, ohne Nebenwirkungen.</h2>
   <p class="tagline">Schluss mit den blauen Pillen. Mansculpt™ Wave Therapy Pro ist ein kompaktes Gerät für zu Hause, das dieselbe akustische Wellentechnologie nutzt, die Urologen in ihren Praxen einsetzen — jetzt für unter 60 Euro. Bereits über 150.000 Männer vertrauen darauf.</p>
@@ -364,7 +365,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- WHY LORI INVESTED (content section) ============================================== -->
 <section class="content-section">
-  <img class="content-section-image" src="assets/images/lori-investment.jpg" alt="Lori Greiner mit dem Mansculpt Wave Therapy Pro Gerät">
+  <img loading="eager" fetchpriority="high" class="content-section-image" src="assets/images/lori-investment.webp" alt="Lori Greiner mit dem Mansculpt Wave Therapy Pro Gerät">
   <h2>Warum hat Lori Greiner 1 Million Dollar in dieses Gerät investiert?</h2>
   <p><span class="highlight">Dr. Michael Davies, MD</span> — ein staatlich geprüfter Urologe, ausgebildet an der renommierten Johns Hopkins Universität — betrat die Shark-Tank-Bühne mit einem Gerät, von dem die meisten Männer noch nie gehört hatten: ein handliches Gerät für akustische Wellentherapie, das er nach seiner eigenen ED-Krise selbst entwickelt hat.</p>
   <p>Seine Forderung war mutig: eine <span class="highlight">Investition von 1 Million Dollar</span>, um klinische Low-Intensity Extracorporeal Shockwave Therapy (LI-ESWT) — dieselbe Technologie, die in Urologie-Praxen für 3.000 Euro pro Sitzung angeboten wird — für unter 60 Euro in deutsche Schlafzimmer zu bringen.</p>
@@ -379,7 +380,7 @@ img { max-width: 100%; height: auto; display: block; }
 <!-- LORI VIDEO QUOTE CARD ============================================== -->
 <section class="video-section">
   <div class="video-card">
-    <img class="video-card-image" src="assets/images/lori-portrait.jpg" alt="Lori Greiner mit dem Mansculpt Gerät">
+    <img decoding="async" loading="lazy" class="video-card-image" src="assets/images/lori-portrait.webp" alt="Lori Greiner mit dem Mansculpt Gerät">
     <span class="shark-star-badge">★ TOP-EMPFEHLUNG</span>
     <p class="video-quote">„Ich bin überzeugt: Mansculpt wird verändern, wie Männer mit diesem Thema umgehen — endlich diskret, von zu Hause aus. Auf so ein Produkt habe ich meine ganze Karriere lang gewartet."</p>
     <p class="video-author">Lori Greiner, Shark-Tank-Investorin</p>
@@ -390,7 +391,7 @@ img { max-width: 100%; height: auto; display: block; }
 <section class="product-section">
   <h2>Warum funktioniert Mansculpt™ so gut — und sogar besser als Pillen?</h2>
   <div class="product-content">
-    <img class="product-image" src="assets/images/device-wave-effect.jpg" alt="Mansculpt Wave Therapy Pro Gerät — Visualisierung der akustischen Wellen">
+    <img decoding="async" loading="lazy" class="product-image" src="assets/images/device-wave-effect.webp" alt="Mansculpt Wave Therapy Pro Gerät — Visualisierung der akustischen Wellen">
     <div class="product-text">
       <p>Mit den Jahren entstehen durch das Alter, schlechte Durchblutung, industriell verarbeitete Lebensmittel, Stress und ganz normalen Verschleiß zwei schleichende Probleme in den Penisarterien — den kleinsten und empfindlichsten Blutgefäßen Ihres Körpers:</p>
       <p><strong>1. Mikroverkalkungen</strong> — winzige Mineralablagerungen, die sich an den Arterienwänden ansammeln. Wie Rost im Inneren eines Rohrs.</p>
@@ -427,19 +428,19 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="doctors-grid">
     <div class="doctor-card">
       <div class="doctor-image">
-        <img src="assets/images/harvard-shield.webp" alt="Harvard University">
+        <img decoding="async" loading="lazy" src="assets/images/harvard-shield.webp" alt="Harvard University">
       </div>
       <p class="doctor-name">Harvard Medical School</p>
     </div>
     <div class="doctor-card">
       <div class="doctor-image">
-        <img src="assets/images/oxford-shield.webp" alt="Oxford University">
+        <img decoding="async" loading="lazy" src="assets/images/oxford-shield.webp" alt="Oxford University">
       </div>
       <p class="doctor-name">University of Oxford</p>
     </div>
     <div class="doctor-card">
       <div class="doctor-image">
-        <img src="assets/images/stanford-shield.webp" alt="Stanford University">
+        <img decoding="async" loading="lazy" src="assets/images/stanford-shield.webp" alt="Stanford University">
       </div>
       <p class="doctor-name">Stanford University</p>
     </div>
@@ -451,7 +452,7 @@ img { max-width: 100%; height: auto; display: block; }
 <section class="doctor-section">
   <div class="doctor-section-container">
     <div class="doctor-section-image">
-      <img src="assets/images/dr-doctor.jpg" alt="Dr. Michael Davies, MD — Urologie">
+      <img decoding="async" loading="lazy" src="assets/images/dr-doctor.webp" alt="Dr. Michael Davies, MD — Urologie">
       <p class="caption">Dr. Michael Davies, MD<br>Johns Hopkins — Urologie</p>
     </div>
     <div class="doctor-section-content">
@@ -477,7 +478,7 @@ img { max-width: 100%; height: auto; display: block; }
 <section class="shark-edition" id="etapa-3">
   <div class="shark-edition-container">
     <div class="shark-edition-image">
-      <img src="assets/images/92ed0e93-b79f-40dd-a238-8deb2d7feb0f.png" alt="Mansculpt Wave Therapy Pro — Shark Tank Edition">
+      <img decoding="async" loading="lazy" src="assets/images/92ed0e93-b79f-40dd-a238-8deb2d7feb0f.webp" alt="Mansculpt Wave Therapy Pro — Shark Tank Edition">
     </div>
     <div class="shark-content">
       <h2>Mansculpt™ Wave Therapy Pro — Shark Tank Edition</h2>
@@ -507,7 +508,7 @@ img { max-width: 100%; height: auto; display: block; }
       <span class="popular-badge">★ Shark Tank Edition — Nur die ersten 100 Bestellungen</span>
       <h3 class="package-title">1 × Mansculpt™</h3>
       <p class="package-subtitle">Wave Therapy Pro · 60 € Rabatt</p>
-      <img class="package-image" src="assets/images/92ed0e93-b79f-40dd-a238-8deb2d7feb0f.png" alt="Mansculpt Wave Therapy Pro">
+      <img decoding="async" loading="lazy" class="package-image" src="assets/images/92ed0e93-b79f-40dd-a238-8deb2d7feb0f.webp" alt="Mansculpt Wave Therapy Pro">
       <div class="package-price-row">
         <span class="package-price-old">119,90 €</span>
         <span class="package-price">59,90<sup> €</sup></span>
@@ -588,7 +589,7 @@ img { max-width: 100%; height: auto; display: block; }
       <span class="popular-badge">★ Shark Tank Edition — Nur die ersten 100 Bestellungen</span>
       <h3 class="package-title">1 × Mansculpt™</h3>
       <p class="package-subtitle">Wave Therapy Pro · 60 € Rabatt</p>
-      <img class="package-image" src="assets/images/92ed0e93-b79f-40dd-a238-8deb2d7feb0f.png" alt="Mansculpt Wave Therapy Pro">
+      <img decoding="async" loading="lazy" class="package-image" src="assets/images/92ed0e93-b79f-40dd-a238-8deb2d7feb0f.webp" alt="Mansculpt Wave Therapy Pro">
       <div class="package-price-row">
         <span class="package-price-old">119,90 €</span>
         <span class="package-price">59,90<sup> €</sup></span>
