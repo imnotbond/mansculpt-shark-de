@@ -8,5 +8,9 @@
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/ph/static/(.*)", "destination": "https://eu-assets.i.posthog.com/static/$1" },
+    { "source": "/ph/(.*)", "destination": "https://eu.i.posthog.com/$1" }
   ]
 }
